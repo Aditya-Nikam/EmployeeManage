@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="10dp">
+
+        <!-- First Name -->
+        <EditText
+            android:id="@+id/editTextFirstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name*"
+            android:layout_margin="5dp"
+            android:background="@drawable/edit_text_background"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invalid First Name"
+            android:textColor="#FF0000"
+            android:textSize="12sp"
+            android:gravity="end"
+            android:visibility="visible"/>
+
+        <!-- Middle Name -->
+        <EditText
+            android:id="@+id/editTextMiddleName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="Middle Name*"
+            android:background="@drawable/edit_text_background"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invalid Middle Name"
+            android:textColor="#FF0000"
+            android:textSize="12sp"
+            android:gravity="end"
+            android:visibility="visible"/>
+
+        <!-- Last Name -->
+        <EditText
+            android:id="@+id/editTextLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="Last Name*"
+            android:background="@drawable/edit_text_background"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invalid Last Name"
+            android:textColor="#FF0000"
+            android:textSize="12sp"
+            android:gravity="end"
+            android:visibility="visible"/>
+
+        <!-- Phone -->
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="+91XXXXXXX86*"
+            android:background="@drawable/edit_text_background"
+            android:inputType="phone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invalid Number"
+            android:textColor="#FF0000"
+            android:textSize="12sp"
+            android:gravity="end"
+            android:visibility="visible"/>
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="Email ID*"
+            android:background="@drawable/edit_text_background"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invalid Email"
+            android:textColor="#FF0000"
+            android:textSize="12sp"
+            android:gravity="end"
+            android:visibility="visible"/>
+
+        <!-- Department -->
+        <EditText
+            android:id="@+id/editTextDepartment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="Department*"
+            android:background="@drawable/edit_text_background"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invalid Department"
+            android:textColor="#FF0000"
+            android:gravity="end"
+            android:textSize="12sp"
+            android:visibility="visible"/>
+
+        <!-- Designation -->
+        <EditText
+            android:id="@+id/editTextDesignation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="Designation*"
+            android:background="@drawable/edit_text_background"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invalid Designation"
+            android:textColor="#FF0000"
+            android:textSize="12sp"
+            android:gravity="end"
+            android:visibility="visible"/>
+
+        <!-- Save Button -->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="SAVE"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#66BB6A"
+            android:background="@drawable/edit_text_background"
+            android:layout_marginTop="24dp" />
+
+    </LinearLayout>
+</ScrollView>

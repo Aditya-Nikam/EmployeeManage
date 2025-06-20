@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EmployeeManager</string>
+    <string name="requird">Required\n</string>
+    <string name="email">Email</string>
 </resources>

@@ -1,80 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <!-- Header + List -->
     <LinearLayout
+        android:id="@+id/main"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="20dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total Employee: "
-            android:textSize="25sp"
-            android:layout_marginLeft="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="horizontal"
+            android:layout_marginVertical="20dp"
+            android:paddingHorizontal="16dp">
 
-        <TextView
-            android:id="@+id/count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="25"
-            android:textSize="25sp"
-            android:textColor="#73AB6B"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Employees: "
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/linkText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="csv"
-            android:layout_marginLeft="50dp"
-            android:textColor="#2962FF"
-            android:textSize="20sp"
-            android:clickable="true"
-            android:focusable="true"
-            android:underlineText="true"  />
+            <TextView
+                android:id="@+id/count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25"
+                android:textSize="20sp"
+                android:textColor="#73AB6B"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp"/>
+
+            <TextView
+                android:id="@+id/linkText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CSV"
+                android:textColor="#2962FF"
+                android:textSize="16sp"
+                android:layout_marginStart="30dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/linkPdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PDF"
+                android:textColor="#2962FF"
+                android:textSize="16sp"
+                android:layout_marginStart="16dp"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
 
         <View
-            android:layout_width="1dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="10dp"
-            android:background="#2962FF"
-            android:layout_marginLeft="10dp"/>
-
-        <TextView
-            android:id="@+id/linkPdf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="pdf"
-            android:layout_marginLeft="10dp"
-            android:textColor="#2962FF"
-            android:textSize="20sp"
-            android:clickable="true"
-            android:focusable="true"
-            android:underlineText="true" />
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC" />
 
 
+
+        <!-- RecyclerView for Employee List -->
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/recyclerViewEmployees"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:padding="8dp"-->
+        <!--            android:scrollbars="vertical"-->
+        <!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+        <!--            tools:listitem="@layout/item_employee_layout" />-->
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#CCCCCC" />
+
+    <!-- Floating Action Button -->
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/j"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="bottom|end"-->
+    <!--        android:layout_margin="16dp"-->
+    <!--        app:srcCompat="@drawable/baseline_add_circle_outline_24"-->
+    <!--        app:tint="@android:color/white"-->
+    <!--        app:backgroundTint="#66BB6A" />-->
+
+    <ImageButton
+        android:id="@+id/addEmployee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        app:tint="@android:color/white"
+        android:padding="5dp"
+        app:backgroundTint="#66BB6A"
+        android:background="@drawable/bg_square_button"
+        app:srcCompat="@drawable/baseline_add_circle_outline_24" />
 
 
-
-</LinearLayout>
+</FrameLayout>

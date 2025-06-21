@@ -16,7 +16,10 @@ import com.example.employeemanager.data.model.Employee
 import com.example.employeemanager.ui.viewmodel.EmployeeViewModel
 
 class AddEmployee : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+
+    private var existingEmployee: Employee? = null
+
+    @SuppressLint("CutPasteId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -52,6 +55,22 @@ class AddEmployee : AppCompatActivity() {
         val saveButton = findViewById<Button>(R.id.saveButton) // Add id to your button
         val viewModel = ViewModelProvider(this)[EmployeeViewModel::class.java]
 
+        existingEmployee = intent.getParcelableExtra("employee")
+
+        existingEmployee?.let { employee ->
+            // Pre-fill form fields
+            findViewById<EditText>(R.id.editTextFirstName).setText(employee.firstName)
+            findViewById<EditText>(R.id.editTextMiddleName).setText(employee.middleName)
+            findViewById<EditText>(R.id.editTextLastName).setText(employee.lastName)
+            findViewById<EditText>(R.id.editTextPhone).setText(employee.phone)
+            findViewById<EditText>(R.id.editTextEmail).setText(employee.email)
+            findViewById<EditText>(R.id.editTextDepartment).setText(employee.department)
+            findViewById<EditText>(R.id.editTextDesignation).setText(employee.designation)
+
+            findViewById<Button>(R.id.saveButton).text = "UPDATE"
+        }
+
+
         saveButton.setOnClickListener {
             val firstName = firstNameEditText.text.toString().trim()
             val middleName = middleNameEditText.text.toString().trim()
@@ -64,9 +83,15 @@ class AddEmployee : AppCompatActivity() {
             if (firstName.isEmpty() || middleName.isEmpty() || lastName.isEmpty() ||
                 phone.length != 10 || !email.contains("@") ||
                 dept.isEmpty() || designation.isEmpty()) {
+
                 Toast.makeText(this, "Please fill all fields correctly", Toast.LENGTH_SHORT).show()
+
             } else {
+                // Check if editing
+                val isEditMode = existingEmployee != null
+
                 val emp = Employee(
+                    id = existingEmployee?.id ?: 0, // Preserve original ID if updating
                     firstName = firstName,
                     middleName = middleName,
                     lastName = lastName,
@@ -76,11 +101,18 @@ class AddEmployee : AppCompatActivity() {
                     designation = designation
                 )
 
-                viewModel.addEmployee(emp)
-                Toast.makeText(this, "Employee added", Toast.LENGTH_SHORT).show()
+                if (isEditMode) {
+                    viewModel.update(emp)
+                    Toast.makeText(this, "Employee updated", Toast.LENGTH_SHORT).show()
+                } else {
+                    viewModel.addEmployee(emp)
+                    Toast.makeText(this, "Employee added", Toast.LENGTH_SHORT).show()
+                }
+
                 finish() // Go back to MainActivity
             }
         }
+
 
 
     }

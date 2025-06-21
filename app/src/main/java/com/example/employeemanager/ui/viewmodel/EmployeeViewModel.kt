@@ -23,5 +23,17 @@ class EmployeeViewModel(application: Application) : AndroidViewModel(application
         repository.addEmployee(emp)
     }
 
+    fun update(employee: Employee) = viewModelScope.launch {
+        repository.update(employee)
+    }
+
+    fun delete(employee: Employee) = viewModelScope.launch {
+        repository.delete(employee)
+    }
+
+    fun getEmployeeById(id: Int): LiveData<Employee> = repository.getEmployeeById(id)
+
+
+
 
 }

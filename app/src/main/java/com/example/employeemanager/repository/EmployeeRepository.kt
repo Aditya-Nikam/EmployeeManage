@@ -10,4 +10,12 @@ class EmployeeRepository(private val dao: EmployeeDao) {
     suspend fun addEmployee(employee: Employee) {
         dao.insertEmployee(employee)
     }
+
+    suspend fun update(employee: Employee) = dao.update(employee)
+    suspend fun delete(employee: Employee) = dao.delete(employee)
+
+    fun getEmployeeById(id: Int): LiveData<Employee> = dao.getEmployeeById(id)
+
+
+
 }

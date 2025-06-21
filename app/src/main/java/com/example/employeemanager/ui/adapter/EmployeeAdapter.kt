@@ -1,5 +1,6 @@
 package com.example.employeemanager.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.employeemanager.R
 import com.example.employeemanager.data.model.Employee
+import com.example.employeemanager.ui.view.EmployeeDetailActivity
 
 class EmployeeAdapter(private var employeeList: List<Employee>) :
     RecyclerView.Adapter<EmployeeAdapter.EmployeeViewHolder>() {
@@ -34,6 +36,13 @@ class EmployeeAdapter(private var employeeList: List<Employee>) :
         holder.email.text = "${employee.email}"
         holder.department.text = "${employee.department}"
         holder.designation.text = "${employee.designation}"
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, EmployeeDetailActivity::class.java)
+            intent.putExtra("employee", employee) // You’ll make Employee Parcelable
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = employeeList.size

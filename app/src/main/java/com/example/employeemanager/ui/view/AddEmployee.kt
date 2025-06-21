@@ -1,14 +1,22 @@
-package com.example.employeemanager
+package com.example.employeemanager.ui.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Html
+import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
+import com.example.employeemanager.R
+import com.example.employeemanager.data.model.Employee
+import com.example.employeemanager.ui.viewmodel.EmployeeViewModel
 
 class AddEmployee : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -41,6 +49,38 @@ class AddEmployee : AppCompatActivity() {
         val designationEditText = findViewById<EditText>(R.id.editTextDesignation)
         designationEditText.hint = Html.fromHtml("Designation<font color='#FF0000'>*</font>")
 
+        val saveButton = findViewById<Button>(R.id.saveButton) // Add id to your button
+        val viewModel = ViewModelProvider(this)[EmployeeViewModel::class.java]
+
+        saveButton.setOnClickListener {
+            val firstName = firstNameEditText.text.toString().trim()
+            val middleName = middleNameEditText.text.toString().trim()
+            val lastName = lastNameEditText.text.toString().trim()
+            val phone = phoneEditText.text.toString().trim()
+            val email = emailEditText.text.toString().trim()
+            val dept = departmentEditText.text.toString().trim()
+            val designation = designationEditText.text.toString().trim()
+
+            if (firstName.isEmpty() || middleName.isEmpty() || lastName.isEmpty() ||
+                phone.length != 10 || !email.contains("@") ||
+                dept.isEmpty() || designation.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields correctly", Toast.LENGTH_SHORT).show()
+            } else {
+                val emp = Employee(
+                    firstName = firstName,
+                    middleName = middleName,
+                    lastName = lastName,
+                    phone = phone,
+                    email = email,
+                    department = dept,
+                    designation = designation
+                )
+
+                viewModel.addEmployee(emp)
+                Toast.makeText(this, "Employee added", Toast.LENGTH_SHORT).show()
+                finish() // Go back to MainActivity
+            }
+        }
 
 
     }

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.view.MainActivity">
 
     <!-- Header + List -->
     <LinearLayout
@@ -40,7 +40,7 @@
                 android:layout_marginStart="4dp"/>
 
             <TextView
-                android:id="@+id/linkText"
+                android:id="@+id/linkCsv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CSV"
@@ -76,28 +76,17 @@
 
 
 
-        <!-- RecyclerView for Employee List -->
-        <!--        <androidx.recyclerview.widget.RecyclerView-->
-        <!--            android:id="@+id/recyclerViewEmployees"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            android:layout_weight="1"-->
-        <!--            android:padding="8dp"-->
-        <!--            android:scrollbars="vertical"-->
-        <!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-        <!--            tools:listitem="@layout/item_employee_layout" />-->
+<!--         RecyclerView for Employee List -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewEmployees"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:scrollbars="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_employee_layout" />
     </LinearLayout>
-
-    <!-- Floating Action Button -->
-    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-    <!--        android:id="@+id/j"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_gravity="bottom|end"-->
-    <!--        android:layout_margin="16dp"-->
-    <!--        app:srcCompat="@drawable/baseline_add_circle_outline_24"-->
-    <!--        app:tint="@android:color/white"-->
-    <!--        app:backgroundTint="#66BB6A" />-->
 
     <ImageButton
         android:id="@+id/addEmployee"

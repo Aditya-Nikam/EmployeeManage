@@ -75,7 +75,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:drawableStart="@drawable/ic_phone"
             android:hint="+91XXXXXXX86*"
+            android:drawablePadding="10dp"
             android:background="@drawable/edit_text_background"
             android:inputType="phone" />
 
@@ -94,6 +96,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:drawableStart="@drawable/ic_mail"
+            android:drawablePadding="10dp"
             android:hint="Email ID*"
             android:background="@drawable/edit_text_background"
             android:inputType="textEmailAddress" />

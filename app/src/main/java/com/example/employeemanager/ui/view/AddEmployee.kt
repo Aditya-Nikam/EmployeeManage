@@ -3,8 +3,10 @@ package com.example.employeemanager.ui.view
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Html
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -70,8 +72,8 @@ class AddEmployee : AppCompatActivity() {
             findViewById<Button>(R.id.saveButton).text = "UPDATE"
         }
 
-
         saveButton.setOnClickListener {
+            // Fetch input
             val firstName = firstNameEditText.text.toString().trim()
             val middleName = middleNameEditText.text.toString().trim()
             val lastName = lastNameEditText.text.toString().trim()
@@ -80,40 +82,79 @@ class AddEmployee : AppCompatActivity() {
             val dept = departmentEditText.text.toString().trim()
             val designation = designationEditText.text.toString().trim()
 
-            if (firstName.isEmpty() || middleName.isEmpty() || lastName.isEmpty() ||
-                phone.length != 10 || !email.contains("@") ||
-                dept.isEmpty() || designation.isEmpty()) {
+            // Error TextViews
+            val errorFirst = findViewById<TextView>(R.id.errorFirstName)
+            val errorMiddle = findViewById<TextView>(R.id.errorMiddleName)
+            val errorLast = findViewById<TextView>(R.id.errorLastName)
+            val errorPhone = findViewById<TextView>(R.id.errorPhone)
+            val errorEmail = findViewById<TextView>(R.id.errorEmail)
+            val errorDept = findViewById<TextView>(R.id.errorDepartment)
+            val errorDesig = findViewById<TextView>(R.id.errorDesignation)
 
-                Toast.makeText(this, "Please fill all fields correctly", Toast.LENGTH_SHORT).show()
-
-            } else {
-                // Check if editing
-                val isEditMode = existingEmployee != null
-
-                val emp = Employee(
-                    id = existingEmployee?.id ?: 0, // Preserve original ID if updating
-                    firstName = firstName,
-                    middleName = middleName,
-                    lastName = lastName,
-                    phone = phone,
-                    email = email,
-                    department = dept,
-                    designation = designation
-                )
-
-                if (isEditMode) {
-                    viewModel.update(emp)
-                    Toast.makeText(this, "Employee updated", Toast.LENGTH_SHORT).show()
-                } else {
-                    viewModel.addEmployee(emp)
-                    Toast.makeText(this, "Employee added", Toast.LENGTH_SHORT).show()
-                }
-
-                finish() // Go back to MainActivity
+            // Reset all errors first
+            listOf(errorFirst, errorMiddle, errorLast, errorPhone, errorEmail, errorDept, errorDesig).forEach {
+                it.visibility = View.GONE
             }
+
+            var isValid = true
+
+            if (firstName.isEmpty()) {
+                errorFirst.visibility = View.VISIBLE
+                isValid = false
+            }
+            if (middleName.isEmpty()) {
+                errorMiddle.visibility = View.VISIBLE
+                isValid = false
+            }
+            if (lastName.isEmpty()) {
+                errorLast.visibility = View.VISIBLE
+                isValid = false
+            }
+            if (phone.length != 10) {
+                errorPhone.visibility = View.VISIBLE
+                isValid = false
+            }
+            if (!email.contains("@")) {
+                errorEmail.visibility = View.VISIBLE
+                isValid = false
+            }
+            if (dept.isEmpty()) {
+                errorDept.visibility = View.VISIBLE
+                isValid = false
+            }
+            if (designation.isEmpty()) {
+                errorDesig.visibility = View.VISIBLE
+                isValid = false
+            }
+
+            if (!isValid) {
+                Toast.makeText(this, "Please correct the errors", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Proceed with save or update
+            val isEditMode = existingEmployee != null
+            val emp = Employee(
+                id = existingEmployee?.id ?: 0,
+                firstName = firstName,
+                middleName = middleName,
+                lastName = lastName,
+                phone = phone,
+                email = email,
+                department = dept,
+                designation = designation
+            )
+
+            if (isEditMode) {
+                viewModel.update(emp)
+                Toast.makeText(this, "Employee updated", Toast.LENGTH_SHORT).show()
+            } else {
+                viewModel.addEmployee(emp)
+                Toast.makeText(this, "Employee added", Toast.LENGTH_SHORT).show()
+            }
+
+            finish()
         }
-
-
 
     }
 }

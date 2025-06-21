@@ -84,8 +84,7 @@
                     android:layout_weight="1"
                     android:padding="8dp"
                     android:scrollbars="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_employee_layout" />
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </LinearLayout>
 
     <ImageButton
@@ -93,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_margin="20dp"
         app:tint="@android:color/white"
         android:padding="0dp"
         app:backgroundTint="#66BB6A"

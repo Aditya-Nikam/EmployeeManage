@@ -83,7 +83,7 @@ class EmployeeDetailActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.textDetailPhone).text = emp.phone
         findViewById<TextView>(R.id.textDetailEmail).text = emp.email
         findViewById<TextView>(R.id.textDetailDepartment).text = emp.department
-        findViewById<TextView>(R.id.textDetailDesignation).text = emp.designation
+        findViewById<TextView>(R.id.textDesignation).text = emp.designation
     }
 
 }

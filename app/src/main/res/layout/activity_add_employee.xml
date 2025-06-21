@@ -23,13 +23,14 @@
             android:inputType="textPersonName" />
 
         <TextView
+            android:id="@+id/errorFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Invalid First Name"
             android:textColor="#FF0000"
             android:textSize="12sp"
             android:gravity="end"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
 
         <!-- Middle Name -->
         <EditText
@@ -42,13 +43,14 @@
             android:inputType="textPersonName" />
 
         <TextView
+            android:id="@+id/errorMiddleName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Invalid Middle Name"
             android:textColor="#FF0000"
             android:textSize="12sp"
             android:gravity="end"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
 
         <!-- Last Name -->
         <EditText
@@ -61,13 +63,14 @@
             android:inputType="textPersonName" />
 
         <TextView
+            android:id="@+id/errorLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Invalid Last Name"
             android:textColor="#FF0000"
             android:textSize="12sp"
             android:gravity="end"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
 
         <!-- Phone -->
         <EditText
@@ -82,13 +85,14 @@
             android:inputType="phone" />
 
         <TextView
+            android:id="@+id/errorPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Invalid Number"
             android:textColor="#FF0000"
             android:textSize="12sp"
             android:gravity="end"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
 
         <!-- Email -->
         <EditText
@@ -103,13 +107,14 @@
             android:inputType="textEmailAddress" />
 
         <TextView
+            android:id="@+id/errorEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Invalid Email"
             android:textColor="#FF0000"
             android:textSize="12sp"
             android:gravity="end"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
 
         <!-- Department -->
         <EditText
@@ -122,13 +127,14 @@
             android:inputType="text" />
 
         <TextView
+            android:id="@+id/errorDepartment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Invalid Department"
             android:textColor="#FF0000"
             android:gravity="end"
             android:textSize="12sp"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
 
         <!-- Designation -->
         <EditText
@@ -141,13 +147,14 @@
             android:inputType="text" />
 
         <TextView
+            android:id="@+id/errorDesignation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Invalid Designation"
             android:textColor="#FF0000"
             android:textSize="12sp"
             android:gravity="end"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
 
         <!-- Save Button -->
         <Button

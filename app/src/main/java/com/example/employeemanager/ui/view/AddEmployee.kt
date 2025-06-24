@@ -110,7 +110,7 @@ class AddEmployee : AppCompatActivity() {
                 errorLast.visibility = View.VISIBLE
                 isValid = false
             }
-            if (phone.length != 10) {
+            if ("01234".contains(phone[0])) {
                 errorPhone.visibility = View.VISIBLE
                 isValid = false
             }
